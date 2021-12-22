@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingTop="100dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="20dp"
+    tools:context=".fizzbuzz.views.fizzbuzzform.FizzBuzzFormFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstMultipleLayout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/firstTextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstMultiple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/fizz_buzz_form_first_multiple"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/secondMultipleLayout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/firstMultipleLayout"
+        app:layout_constraintStart_toStartOf="@+id/firstMultipleLayout"
+        app:layout_constraintTop_toBottomOf="@+id/firstMultipleLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/secondMultiple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/fizz_buzz_form_second_multiple"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstTextLayout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/firstMultipleLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/firstMultipleLayout"
+        app:layout_constraintTop_toTopOf="@+id/firstMultipleLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstTextReplacement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/fizz_buzz_form_first_text_replacement"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/secondTextLayout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/secondMultipleLayout"
+        app:layout_constraintEnd_toEndOf="@+id/firstTextLayout"
+        app:layout_constraintStart_toStartOf="@+id/firstTextLayout"
+        app:layout_constraintTop_toTopOf="@+id/secondMultipleLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/secondTextReplacement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/fizz_buzz_form_second_text_replacement"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/limitLayout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/firstTextLayout"
+        app:layout_constraintStart_toStartOf="@+id/firstMultipleLayout"
+        app:layout_constraintTop_toBottomOf="@+id/secondMultipleLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/limitText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/fizz_buzz_form_limit"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/validateBtnLoader"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:elevation="3dp"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/validateBtn"
+        app:layout_constraintEnd_toEndOf="@+id/validateBtn"
+        app:layout_constraintStart_toStartOf="@+id/validateBtn"
+        app:layout_constraintTop_toTopOf="@+id/validateBtn">
+    </ProgressBar>
+
+    <Button
+        android:id="@+id/validateBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="200dp"
+        android:text="@string/fizz_buzz_form_validate_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

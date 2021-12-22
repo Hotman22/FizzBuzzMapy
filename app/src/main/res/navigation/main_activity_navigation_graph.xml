@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_navigation_graph"
+    app:startDestination="@id/fizzBuzzFormFragment">
+
+    <fragment
+        android:id="@+id/fizzBuzzFormFragment"
+        android:name="com.otmanihakim.fizzbuzzmappy.fizzbuzz.views.fizzbuzzform.FizzBuzzFormFragment"
+        android:label="fragment_fizz_buzz_form"
+        tools:layout="@layout/fragment_fizz_buzz_form">
+        <action
+            android:id="@+id/goToFizzBuzzResult"
+            app:destination="@id/fizzBuzzResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fizzBuzzResultFragment"
+        android:name="com.otmanihakim.fizzbuzzmappy.fizzbuzz.views.fizzbuzzresult.FizzBuzzResultFragment"
+        android:label="fragment_fizz_buzz_result"
+        tools:layout="@layout/fragment_fizz_buzz_result">
+        <argument
+            android:name="fizzBuzzForm"
+            app:argType="com.otmanihakim.fizzbuzzmappy.fizzbuzz.fizzbuzzformvalidator.presentation.viewmodel.state.FizzBuzzFormEventState$FizzBuzzFormValidatorUiModel" />
+    </fragment>
+</navigation>

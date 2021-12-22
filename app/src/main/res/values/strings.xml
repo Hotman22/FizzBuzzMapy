@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FizzBuzzMappy</string>
+
+    <!-- Fizz buzz Form -->
+    <string name="fizz_buzz_form_first_multiple">First multiple</string>
+    <string name="fizz_buzz_form_second_multiple">Second multiple</string>
+    <string name="fizz_buzz_form_first_text_replacement">First text replacement</string>
+    <string name="fizz_buzz_form_second_text_replacement">Second text replacement</string>
+    <string name="fizz_buzz_form_limit">Number limit</string>
+    <string name="fizz_buzz_form_validate_btn">Validate</string>
+    <string name="fizz_buzz_form_zero_error">Multiple must be different from 0</string>
+    <string name="fizz_buzz_form_empty_error">Please fill all the form</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
