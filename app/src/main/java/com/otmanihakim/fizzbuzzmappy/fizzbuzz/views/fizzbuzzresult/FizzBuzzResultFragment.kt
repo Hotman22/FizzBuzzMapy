@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.distinctUntilChanged
+import androidx.lifecycle.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.otmanihakim.fizzbuzzmappy.databinding.FragmentFizzBuzzResultBinding
 import com.otmanihakim.fizzbuzzmappy.fizzbuzz.fizzbuzzcalculator.factory.FizzBuzzCalculatorFactory
@@ -42,6 +44,10 @@ class FizzBuzzResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initFizzBuzzUiObserver()
         initFizzBuzzEventObserver()
+    }
+
+    override fun onStart() {
+        super.onStart()
         calculateFizzBuzz()
     }
 
@@ -57,10 +63,10 @@ class FizzBuzzResultFragment : Fragment() {
     }
 
     private fun initFizzBuzzEventObserver() {
-        fizzBuzzCalculViewModel.eventLiveData.observe(viewLifecycleOwner) { state ->
-            state.getEventIfNotHandled()?.let {
-                if (state.event is FizzBuzzCalculEventState.FizzBuzzCalculUiModel) {
-                    showFizzBuzzResult(state.event.results)
+        fizzBuzzCalculViewModel.eventLiveData.map { it.getEventIfNotHandled() }.distinctUntilChanged().observe(viewLifecycleOwner) { state ->
+            state?.let { event ->
+                if (event is FizzBuzzCalculEventState.FizzBuzzCalculUiModel) {
+                    showFizzBuzzResult(event.results)
                 }
             }
         }

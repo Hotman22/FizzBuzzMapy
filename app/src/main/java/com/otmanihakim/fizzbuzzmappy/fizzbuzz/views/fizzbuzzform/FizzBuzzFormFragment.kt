@@ -52,8 +52,8 @@ class FizzBuzzFormFragment : Fragment() {
     )
 
     private fun initValidateFormUiObserver() {
-        validateFormViewModel.uiLiveData.map { it.data }.distinctUntilChanged().observe(viewLifecycleOwner) { state ->
-            when (state) {
+        validateFormViewModel.uiLiveData.observe(viewLifecycleOwner) { state ->
+            when (state.data) {
                 is FizzBuzzFormError.EmptyFormFound -> manageEmptyErrorState()
                 is FizzBuzzFormError.ZeroFound -> manageZeroErrorState()
                 is FizzBuzzFormUiState.Loading -> showLoader()
@@ -72,7 +72,6 @@ class FizzBuzzFormFragment : Fragment() {
         }
     }
 
-
     private fun manageEmptyErrorState() {
         hideLoader()
         Toast.makeText(requireContext(), getString(R.string.fizz_buzz_form_empty_error), Toast.LENGTH_LONG).show()
@@ -84,7 +83,7 @@ class FizzBuzzFormFragment : Fragment() {
     }
 
     private fun goToFizzBuzzResultView(data: FizzBuzzFormEventState.FizzBuzzFormValidatorUiModel) {
-        hideLoader()
+        showLoader()
         findNavController().navigate(FizzBuzzFormFragmentDirections.goToFizzBuzzResult(data))
     }
 
@@ -92,6 +91,7 @@ class FizzBuzzFormFragment : Fragment() {
         binding.apply {
             validateBtnLoader.visibility = View.VISIBLE
             validateBtn.text = ""
+            validateBtn.isEnabled = false
         }
     }
 
@@ -99,6 +99,7 @@ class FizzBuzzFormFragment : Fragment() {
         binding.apply {
             validateBtnLoader.visibility = View.GONE
             validateBtn.text = getString(R.string.fizz_buzz_form_validate_btn)
+            validateBtn.isEnabled = true
         }
     }
     //endregion validate form

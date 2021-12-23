@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class FizzBuzzFormValidatorViewModel(private var fizzbuzzformvalidator: IFizzBuzzFormValidator) : ViewModel() {
 
-      private val uiMutableLiveData = MutableLiveData<UiScreen<FizzBuzzFormUiState>>(UiScreen.loading())
+      private val uiMutableLiveData = MutableLiveData<UiScreen<FizzBuzzFormUiState>>()
       val uiLiveData: LiveData<UiScreen<FizzBuzzFormUiState>>
         get() = uiMutableLiveData
     private val eventMutableLiveData = MutableLiveData<UiEvent<FizzBuzzFormEventState>>()
@@ -33,9 +33,7 @@ class FizzBuzzFormValidatorViewModel(private var fizzbuzzformvalidator: IFizzBuz
        }
 
     private fun handleLoadingState() {
-        uiMutableLiveData.value?.let {
-            uiMutableLiveData.postValue(UiScreen.success(FizzBuzzFormUiState.Loading))
-        }
+        uiMutableLiveData.postValue(UiScreen.success(FizzBuzzFormUiState.Loading))
     }
 
     private fun handleFormSuccess(data: FizzBuzzFormEventState) {

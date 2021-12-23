@@ -11,7 +11,7 @@ class FizzBuzzCalculator(private val fizzBuzzEntitiesCalculator: IFizzBuzzCalcul
 
     override suspend fun calculate(fizzBuzzForm: FizzBuzzFormEventState.FizzBuzzFormValidatorUiModel): Outcome<FizzBuzzCalculEventState, FizzBuzzCalculError> {
         val result = ArrayList<String>()
-        val limit = fizzBuzzForm.limit.toInt()
+        val limit = fizzBuzzForm.limit.toLong()
         val firstMultiple = fizzBuzzForm.firstMultiple.toInt()
         val secondMultiple = fizzBuzzForm.secondMultiple.toInt()
         val firstText = fizzBuzzForm.firstTextReplacement
