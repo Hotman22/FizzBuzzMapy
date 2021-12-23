@@ -4,7 +4,7 @@ import com.otmanihakim.fizzbuzzmappy.fizzbuzz.fizzbuzzcalculator.presentation.en
 
 class FizzBuzzCalculatorEntitie : IFizzBuzzCalculatorEntitie {
 
-    override fun calculate(
+    override suspend fun calculate(
         number: Long,
         firstMultiple: Int,
         secondMultiple: Int,

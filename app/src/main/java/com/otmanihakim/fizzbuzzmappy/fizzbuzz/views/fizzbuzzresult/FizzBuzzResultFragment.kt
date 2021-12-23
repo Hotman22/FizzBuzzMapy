@@ -93,5 +93,4 @@ class FizzBuzzResultFragment : Fragment() {
     private fun hideLoader() {
         binding.resultScreenLoader.visibility = View.GONE
     }
-
 }

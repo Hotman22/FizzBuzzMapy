@@ -26,6 +26,7 @@
             android:hint="@string/fizz_buzz_form_first_multiple"
             android:imeOptions="actionNext"
             android:inputType="number"
+            android:maxLength="7"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,6 +47,7 @@
             android:hint="@string/fizz_buzz_form_second_multiple"
             android:imeOptions="actionNext"
             android:inputType="number"
+            android:maxLength="7"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,6 +108,7 @@
             android:hint="@string/fizz_buzz_form_limit"
             android:imeOptions="actionDone"
             android:inputType="number"
+            android:maxLength="7"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
